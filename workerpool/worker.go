@@ -5,10 +5,12 @@ import (
 	"time"
 )
 
+// A worker using an HTTP client with a specified timeout
 type worker struct {
 	client *http.Client
 }
 
+// Creates a new worker with an HTTP client that has a timeout set.
 func newWorker(timeout time.Duration) *worker {
 	return &worker{
 		&http.Client{
@@ -17,6 +19,7 @@ func newWorker(timeout time.Duration) *worker {
 	}
 }
 
+// Processes a task: makes an HTTP request, measures the response time and returns the result.
 func (w worker) process(j Job) Result {
 	result := Result{URL: j.URL}
 
