@@ -17,13 +17,13 @@ const (
 )
 
 var urls = []string{
-	"https://abracadabreaa.com/",
+	"https://facebook-instagram.com/",
 	"https://oleksandr-vlasov.com/",
 	"https://google.com/",
 	"https://golang.org/",
 }
 
-// Main function
+// Main function:
 // 1. Creates a channel for tesults and a pool of workers.
 // 2. Initializes the pool.
 // 3. Runs goroutines to generate tasks and process results.
