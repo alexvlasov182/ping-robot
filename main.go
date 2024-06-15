@@ -24,7 +24,7 @@ var urls = []string{
 }
 
 // Main function:
-// 1. Creates a channel for tesults and a pool of workers.
+// 1. Creates a channel for results and a pool of workers.
 // 2. Initializes the pool.
 // 3. Runs goroutines to generate tasks and process results.
 // 4. Waits for a termination signal (SIGTERM or SIGINT) and stops the pool
