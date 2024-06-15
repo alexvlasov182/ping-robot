@@ -1,4 +1,4 @@
-# Application Ping bot
+# Application Ping Robot
 
 ### Start project
 ```
