@@ -23,6 +23,12 @@ var urls = []string{
 	"https://golang.org/",
 }
 
+// Main function
+// 1. Creates a channel for tesults and a pool of workers.
+// 2. Initializes the pool.
+// 3. Runs goroutines to generate tasks and process results.
+// 4. Waits for a termination signal (SIGTERM or SIGINT) and stops the pool
+
 func main() {
 	results := make(chan workerpool.Result)
 	workerPool := workerpool.New(WORKERS_COUNT, REQUEST_TIMEOUT, results)
@@ -40,6 +46,7 @@ func main() {
 	workerPool.Stop()
 }
 
+// Process the results from the results channel, outputing information
 func proccessResults(results chan workerpool.Result) {
 	go func() {
 		for result := range results {
@@ -48,6 +55,7 @@ func proccessResults(results chan workerpool.Result) {
 	}()
 }
 
+// Periodically adds tasks (URLs) to the pool.
 func generateJobs(wp *workerpool.Pool) {
 	for {
 		for _, url := range urls {
