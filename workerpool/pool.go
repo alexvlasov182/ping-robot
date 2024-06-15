@@ -76,6 +76,7 @@ func (p *Pool) Stop() {
 	p.wg.Wait()
 }
 
+// Basic workflow logic: waiting for tasks from the channel, processing the tasks and sending the results to the results channel.
 func (p *Pool) initWorker(id int) {
 	for job := range p.jobs {
 		time.Sleep(time.Second)
